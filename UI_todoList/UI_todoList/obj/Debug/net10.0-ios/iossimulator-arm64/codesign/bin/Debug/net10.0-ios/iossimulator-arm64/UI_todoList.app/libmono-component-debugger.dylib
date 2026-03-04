@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/bin/Debug/net10.0-ios/iossimulator-arm64/UI_todoList.app/libmono-component-debugger.dylib
