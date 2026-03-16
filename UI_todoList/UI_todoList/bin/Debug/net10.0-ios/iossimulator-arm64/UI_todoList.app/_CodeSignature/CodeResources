@@ -814,11 +814,11 @@
 		</data>
 		<key>UI_todoList.dll</key>
 		<data>
-		CDm5oWoRxAO8lSGwMipdrBP5ahQ=
+		ihkAj0cjm3Ytey1Qe1BStxNmKqA=
 		</data>
 		<key>UI_todoList.pdb</key>
 		<data>
-		nEy3p6s7admhDLh9FFFyezWzSnM=
+		Wb8WOFCeYfnrtTLapYWDaPLewuU=
 		</data>
 		<key>WindowsBase.dll</key>
 		<data>
@@ -991,6 +991,10 @@
 		<key>pl/Microsoft.Maui.Controls.resources.dll</key>
 		<data>
 		n1sm1c7PbnRIGibkwxP4AG6FK5Q=
+		</data>
+		<key>profile.jpeg</key>
+		<data>
+		7leEOk+4VfMYZmqCC5i/gLPRq2U=
 		</data>
 		<key>pt-BR/Microsoft.Maui.Controls.resources.dll</key>
 		<data>
@@ -2475,14 +2479,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			03I7z2RwJiWpuwjuYAKFAu2XsOzA0qOjLinul1T4NcY=
+			sTys01Xl1BpWhmCzlW32oaSV2DXSiGEBXxN2mA22T5Q=
 			</data>
 		</dict>
 		<key>UI_todoList.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TvzZMlQRpYJ/dlTOH3EemnLqsv+SOYZ4zlagrLgt+bE=
+			UwspPWKwQFcITmWGoj7lfjT1pn/nTGgVPx62BAGT5FA=
 			</data>
 		</dict>
 		<key>WindowsBase.dll</key>
@@ -2784,6 +2788,13 @@
 			<key>hash2</key>
 			<data>
 			dNcQXcoEhr7tuQ9CbdShLv4lr1libbtOmu0wtJ9s61I=
+			</data>
+		</dict>
+		<key>profile.jpeg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MStPnS6hwuMv0/aFJmIeB/2kmIrq8pnpumNVGaNbFjE=
 			</data>
 		</dict>
 		<key>pt-BR/Microsoft.Maui.Controls.resources.dll</key>

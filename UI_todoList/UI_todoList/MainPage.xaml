@@ -45,76 +45,253 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="0"
-            Padding="30,60,30,40"
-            VerticalOptions="FillAndExpand">
+    <Grid>
 
-            
-            <Border
-                HeightRequest="160"
-                WidthRequest="160"
-                StrokeThickness="0"
-                BackgroundColor="#F0F0F0"
-                HorizontalOptions="Center"
-                Margin="0,0,0,48">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"/>
-                </Border.StrokeShape>
-                <Image
-                    Source="todolistlogo.png"
-                    Aspect="AspectFit"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            </Border>
+        <!-- AUTH SCROLL (Sign In + Sign Up) -->
+        <ScrollView x:Name="AuthScroll">
+            <VerticalStackLayout Spacing="0" Padding="30,60,30,40">
 
-            <Border
-                Stroke="{StaticResource InputBorder}"
-                StrokeThickness="1"
-                BackgroundColor="Transparent"
-                HeightRequest="52"
-                >
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"/>
-                </Border.StrokeShape>
-                <Entry
-                    x:Name="EmailEntry"
-                    Style="{StaticResource InputEntryStyle}"
-                    Placeholder="Email address"
-                    Keyboard="Email"
-                    ReturnType="Next"/>
-            </Border>
+                <!-- Logo -->
+                <Border HeightRequest="160" WidthRequest="160" StrokeThickness="0"
+                        BackgroundColor="#F0F0F0" HorizontalOptions="Center" Margin="0,0,0,48">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                    <Image Source="todolistlogo.png" Aspect="AspectFit"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
 
-            <Border
-                Stroke="{StaticResource InputBorder}"
-                StrokeThickness="1"
-                BackgroundColor="Transparent"
-                HeightRequest="52"
-                Margin="0,0,0,24">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"/>
-                </Border.StrokeShape>
-                <Entry
-                    x:Name="PasswordEntry"
-                    Style="{StaticResource InputEntryStyle}"
-                    Placeholder="Password"
-                    IsPassword="True"
-                    ReturnType="Done"/>
-            </Border>
+                <!-- SIGN IN VIEW -->
+                <VerticalStackLayout x:Name="SignInView" Spacing="0">
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,12">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="EmailEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Email address" Keyboard="Email" ReturnType="Next"/>
+                    </Border>
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,24">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="PasswordEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Password" IsPassword="True" ReturnType="Done"/>
+                    </Border>
+                    <Button Text="Sign in" Style="{StaticResource PrimaryButtonStyle}"
+                            Clicked="OnSignInClicked" Margin="0,0,0,12"/>
+                    <Button Text="Sign up" Style="{StaticResource SecondaryButtonStyle}"
+                            Clicked="OnShowSignUpClicked"/>
+                </VerticalStackLayout>
 
-            <Button
-                Text="Sign in"
-                Style="{StaticResource PrimaryButtonStyle}"
-                Clicked="OnSignInClicked"
-                Margin="0,0,0,12"/>
+                <!-- SIGN UP VIEW -->
+                <VerticalStackLayout x:Name="SignUpView" Spacing="0" IsVisible="False">
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,12">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="NameEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Username" ReturnType="Next"/>
+                    </Border>
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,12">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="SignUpEmailEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Email address" Keyboard="Email" ReturnType="Next"/>
+                    </Border>
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,12">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="SignUpPasswordEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Password" IsPassword="True" ReturnType="Next"/>
+                    </Border>
+                    <Border Stroke="Transparent" StrokeThickness="1"
+                            BackgroundColor="Transparent" HeightRequest="52" Margin="0,0,0,24">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                        <Entry x:Name="ConfirmPasswordEntry" Style="{StaticResource InputEntryStyle}"
+                               Placeholder="Confirm password" IsPassword="True" ReturnType="Done"/>
+                    </Border>
+                    <Button Text="Sign up" Style="{StaticResource PrimaryButtonStyle}"
+                            Clicked="OnSignUpClicked" Margin="0,0,0,12"/>
+                    <Button Text="Back to Sign in" Style="{StaticResource SecondaryButtonStyle}"
+                            Clicked="OnShowSignInClicked"/>
+                </VerticalStackLayout>
 
-            <Button
-                Text="Sign up"
-                Style="{StaticResource SecondaryButtonStyle}"
-                Clicked="OnSignUpClicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
 
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- TODO VIEW -->
+        <Grid x:Name="TodoView" IsVisible="False"
+              RowDefinitions="Auto,Auto,*,Auto,Auto"
+              BackgroundColor="White">
+
+            <Label Grid.Row="0" Text="ToDo" FontSize="18"
+                   HorizontalOptions="Center" TextColor="#AAAAAA" Margin="0,60,0,16"/>
+            <BoxView Grid.Row="1" HeightRequest="1" Color="#E0E0E0"/>
+
+            <CollectionView Grid.Row="2" x:Name="TodoList" Margin="16,12">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#E0E0E0" StrokeThickness="1"
+                                BackgroundColor="White" Margin="0,0,0,10">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                            <Grid ColumnDefinitions="*,44,44,44" Padding="12,0" HeightRequest="56">
+                                <VerticalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding Title}" FontSize="15"
+                                           TextColor="#333333" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Details}" FontSize="12" TextColor="#AAAAAA"/>
+                                </VerticalStackLayout>
+                                <Button Grid.Column="1" Text="✏️" FontSize="14"
+                                        BackgroundColor="Transparent" TextColor="#ce8c5f"
+                                        HeightRequest="44" WidthRequest="44" Padding="0"
+                                        CommandParameter="{Binding .}" Clicked="OnEditTodoClicked"/>
+                                <Button Grid.Column="2" Text="🗑" FontSize="16"
+                                        BackgroundColor="Transparent" TextColor="#ce8c5f"
+                                        HeightRequest="44" WidthRequest="44" Padding="0"
+                                        CommandParameter="{Binding .}" Clicked="OnDeleteTodoClicked"/>
+                                <Button Grid.Column="3" Text="✓" FontSize="16"
+                                        BackgroundColor="Transparent" TextColor="#ce8c5f"
+                                        HeightRequest="44" WidthRequest="44" Padding="0"
+                                        CommandParameter="{Binding .}" Clicked="OnCompleteTodoClicked"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Grid.Row="3" Text="+" FontSize="28"
+                    BackgroundColor="#b95d24" TextColor="White"
+                    CornerRadius="16" HeightRequest="56" WidthRequest="56"
+                    HorizontalOptions="End" Margin="0,8,16,8"
+                    Clicked="OnAddTodoClicked"/>
+
+            <Grid Grid.Row="4" ColumnDefinitions="*,*,*" HeightRequest="64" BackgroundColor="White">
+                <BoxView Grid.ColumnSpan="3" HeightRequest="1" Color="#E0E0E0" VerticalOptions="Start"/>
+                <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" TextColor="#b95d24"/>
+                    <Label Text="ToDo" FontSize="11" HorizontalOptions="Center" TextColor="#b95d24" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="✓" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="Completed" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCompletedTabClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="Profile" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTabClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Grid>
+
+        <!-- COMPLETED VIEW -->
+        <Grid x:Name="CompletedView" IsVisible="False"
+              RowDefinitions="Auto,Auto,*,Auto"
+              BackgroundColor="White">
+
+            <Label Grid.Row="0" Text="Completed" FontSize="18"
+                   HorizontalOptions="Center" TextColor="#AAAAAA" Margin="0,60,0,16"/>
+            <BoxView Grid.Row="1" HeightRequest="1" Color="#E0E0E0"/>
+
+            <CollectionView Grid.Row="2" x:Name="CompletedList" Margin="16,12">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#E0E0E0" StrokeThickness="1"
+                                BackgroundColor="White" Margin="0,0,0,10">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                            <Grid ColumnDefinitions="*,44,44" Padding="12,0" HeightRequest="56">
+                                <VerticalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding Title}" FontSize="15"
+                                           TextColor="#AAAAAA" FontAttributes="Bold"
+                                           TextDecorations="Strikethrough"/>
+                                    <Label Text="{Binding Details}" FontSize="12" TextColor="#CCCCCC"/>
+                                </VerticalStackLayout>
+                                <Button Grid.Column="1" Text="✏️" FontSize="14"
+                                        BackgroundColor="Transparent" TextColor="#ce8c5f"
+                                        HeightRequest="44" WidthRequest="44" Padding="0"
+                                        CommandParameter="{Binding .}" Clicked="OnEditCompletedClicked"/>
+                                <Button Grid.Column="2" Text="🗑" FontSize="16"
+                                        BackgroundColor="Transparent" TextColor="#ce8c5f"
+                                        HeightRequest="44" WidthRequest="44" Padding="0"
+                                        CommandParameter="{Binding .}" Clicked="OnDeleteCompletedClicked"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid Grid.Row="3" ColumnDefinitions="*,*,*" HeightRequest="64" BackgroundColor="White">
+                <BoxView Grid.ColumnSpan="3" HeightRequest="1" Color="#E0E0E0" VerticalOptions="Start"/>
+                <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="ToDo" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTodoTabClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="✓" FontSize="22" HorizontalOptions="Center" TextColor="#b95d24"/>
+                    <Label Text="Completed" FontSize="11" HorizontalOptions="Center"
+                           TextColor="#b95d24" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="Profile" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileTabFromCompletedClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Grid>
+
+        <!-- PROFILE VIEW -->
+        <Grid x:Name="ProfileView" IsVisible="False"
+              RowDefinitions="Auto,Auto,*,Auto"
+              BackgroundColor="White">
+
+            <Label Grid.Row="0" Text="Profile" FontSize="18"
+                   HorizontalOptions="Center" TextColor="#AAAAAA" Margin="0,60,0,16"/>
+            <BoxView Grid.Row="1" HeightRequest="1" Color="#E0E0E0"/>
+
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center"
+                                 HorizontalOptions="Center" Spacing="24">
+                <Border HeightRequest="160" WidthRequest="160" StrokeThickness="0"
+                        BackgroundColor="#F0F0F0" HorizontalOptions="Center">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                    <Image Source="profile.jpeg" Aspect="AspectFit"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+                <Button Text="Sign out"
+                        BackgroundColor="#b95d24" TextColor="White"
+                        CornerRadius="10" HeightRequest="52" WidthRequest="260"
+                        Clicked="OnSignOutClicked"/>
+            </VerticalStackLayout>
+
+            <Grid Grid.Row="3" ColumnDefinitions="*,*,*" HeightRequest="64" BackgroundColor="White">
+                <BoxView Grid.ColumnSpan="3" HeightRequest="1" Color="#E0E0E0" VerticalOptions="Start"/>
+                <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="📋" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="ToDo" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTodoTabFromProfileClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="✓" FontSize="22" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <Label Text="Completed" FontSize="11" HorizontalOptions="Center" TextColor="#AAAAAA"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCompletedTabFromProfileClicked"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="👤" FontSize="22" HorizontalOptions="Center" TextColor="#b95d24"/>
+                    <Label Text="Profile" FontSize="11" HorizontalOptions="Center"
+                           TextColor="#b95d24" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
 
 </ContentPage>

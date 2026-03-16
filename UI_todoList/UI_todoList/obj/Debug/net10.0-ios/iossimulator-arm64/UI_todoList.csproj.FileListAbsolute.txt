@@ -317,3 +317,5 @@
 /Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/Debug/net10.0-ios/iossimulator-arm64/UI_todoList.genruntimeconfig.cache
 /Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/Debug/net10.0-ios/iossimulator-arm64/ref/UI_todoList.dll
 /Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/Debug/net10.0-ios/iossimulator-arm64/resizetizer/r/Resources/todolistlogo.png
+/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/Debug/net10.0-ios/iossimulator-arm64/UI_todoList.sourcelink.json
+/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/Debug/net10.0-ios/iossimulator-arm64/resizetizer/r/Resources/profile.jpeg
