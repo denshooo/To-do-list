@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/UI_todoList.csproj": {}
+    "/Users/klyder/RiderProjects/To-do-list/UI_todoList/UI_todoList/UI_todoList.csproj": {}
   },
   "projects": {
-    "/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/UI_todoList.csproj": {
+    "/Users/klyder/RiderProjects/To-do-list/UI_todoList/UI_todoList/UI_todoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/UI_todoList.csproj",
+        "projectUniqueName": "/Users/klyder/RiderProjects/To-do-list/UI_todoList/UI_todoList/UI_todoList.csproj",
         "projectName": "UI_todoList",
-        "projectPath": "/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/UI_todoList.csproj",
-        "packagesPath": "/Users/labuser/.nuget/packages/",
-        "outputPath": "/Users/labuser/RiderProjects/MobDev/UI_todoList/UI_todoList/obj/",
+        "projectPath": "/Users/klyder/RiderProjects/To-do-list/UI_todoList/UI_todoList/UI_todoList.csproj",
+        "packagesPath": "/Users/klyder/.nuget/packages/",
+        "outputPath": "/Users/klyder/RiderProjects/To-do-list/UI_todoList/UI_todoList/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
-          "/Users/labuser/.nuget/NuGet/NuGet.Config"
+          "/Users/klyder/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0-android",
@@ -23,7 +23,7 @@
           "net10.0-maccatalyst"
         ],
         "sources": {
-          "/Users/labuser/.dotnet/library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,7 +50,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0-android36.0": {
@@ -62,12 +62,12 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.20, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.2, )",
+              "version": "[10.0.5, )",
               "autoReferenced": true
             }
           },
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/labuser/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -378,12 +378,12 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.20, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.2, )",
+              "version": "[10.0.5, )",
               "autoReferenced": true
             }
           },
@@ -409,7 +409,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/labuser/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -694,12 +694,12 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.20, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.2, )",
+              "version": "[10.0.5, )",
               "autoReferenced": true
             }
           },
@@ -726,7 +726,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/labuser/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
